@@ -23,7 +23,7 @@ class FarmMonacoMod(loader.Module):
     async def b_run(self, client):
         while True:
             await client.send_message('@TChat_TChat_bot', "Фарм")
-            await asyncio.sleep(14700)
+            await asyncio.sleep(14460)
 
     @loader.unrestricted
     @loader.ratelimit

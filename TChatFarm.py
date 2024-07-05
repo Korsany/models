@@ -33,6 +33,8 @@ class FarmMonacoMod(loader.Module):
             return await message.edit("Автоматический фарминг уже запущен.")
             
         await message.edit("Автоматический фарминг запущен.")
+
+        client = message.client
         self.tasks = [asyncio.create_task(self.b_run(client))]
 
     @loader.unrestricted

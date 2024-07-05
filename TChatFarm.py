@@ -31,14 +31,8 @@ class FarmMonacoMod(loader.Module):
         """Запустить автоматический фарминг в боте"""
         if self.tasks:
             return await message.edit("Автоматический фарминг уже запущен.")
-        
+            
         await message.edit("Автоматический фарминг запущен.")
-    
-        while True:
-            await client.send_message('@TChat_TChat_bot', "Фарм")
-            await asyncio.sleep(3600)
-    
-        client = message.client
         self.tasks = [asyncio.create_task(self.b_run(client))]
 
     @loader.unrestricted

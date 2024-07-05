@@ -35,15 +35,8 @@ class FarmMonacoMod(loader.Module):
         await message.edit("Автоматический фарминг запущен.")
     
         while True:
-            current_time = time.strftime("%H:%M", time.gmtime(time.time() + 3 * 3600))  # UTC+3 для времени в Москве
-    
-            if current_time[-2:] == "00":
-                current_hour = int(current_time[:2])
-                if current_hour % 4 == 0 or current_hour == 0:
-                    await client.send_message('@TChat_TChat_bot', "Фарм")
-    
-                    # Ждем час, прежде чем снова проверить время
-                    await asyncio.sleep(3600)
+            await client.send_message('@TChat_TChat_bot', "Фарм")
+            await asyncio.sleep(3600)
     
         client = message.client
         self.tasks = [asyncio.create_task(self.b_run(client))]
